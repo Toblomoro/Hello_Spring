@@ -25,29 +25,6 @@ public class HelloController {
     }
 
     // Handles requests of the form /hello?name=LaunchCode
-    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
-//lives at /hello/hello
-    public String helloWithQueryParam(@RequestParam  String name, @RequestParam  String lg) {
-        if (lg == "French") {
-            return "Bon Jour " + name + "!";
-        } else if (lg == "English") {
-            return "Hello, " + name + "!";
-        } else if (lg == "Greek") {
-            return "Χαίρετε, " + name + "!";
-        } else if (lg == "Spanish") {
-            return "Hola, " + name + "!";
-        } else if (lg == "Cowboy") {
-            return "Howdy, " + name + "!";
-        } else if (lg == "Klingon") {
-            return "nuqneH, " + name + "!";
-        } else if (lg == "Elvish") {
-            return "S Suilad, " + name + "!";
-        } else {
-            return "You didnt choose a language.";
-        }
-
-    }
-
 
     // Handles requests of the form /hello/LaunchCode
 //    @GetMapping("{name}")
@@ -85,7 +62,7 @@ public class HelloController {
                 "<form action = 'hello' method = 'post'>" + // submit request to hello
                 "<input type = 'text' name = 'name'>" +
                 "<label for = 'lg'> Language </label>" +
-                "<select name = 'lg' id = 'lg'"+
+                "<select name = 'lg'"+
                 "<option value = 'blank'> </option>" +
                 "<optgroup label=\"Real Languages\">" +
                 "<option value = 'lg'> French </option>" +
@@ -106,6 +83,30 @@ public class HelloController {
 
 
     }
+    @PostMapping("hello")
+//lives at /hello/hello
+    public String helloWithQueryParam(@RequestParam  String name, String lg) {
+        if (lg == "French") {
+            return "Bon Jour " + name + "!";
+        } else if (lg == "English") {
+            return "Hello, " + name + "!";
+        } else if (lg == "Greek") {
+            return "Χαίρετε, " + name + "!";
+        } else if (lg == "Spanish") {
+            return "Hola, " + name + "!";
+        } else if (lg == "Cowboy") {
+            return "Howdy, " + name + "!";
+        } else if (lg == "Klingon") {
+            return "nuqneH, " + name + "!";
+        } else if (lg == "Elvish") {
+            return "S Suilad, " + name + "!";
+        } else {
+            return "You didnt choose a language.";
+        }
+       // return "Howdy, " + name + "!";
+    }
+
+
 
 
 
